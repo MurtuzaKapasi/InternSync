@@ -35,7 +35,6 @@ const cors = require('cors');
 // Enable CORS for all origins
 app.use(cors());
 
-
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
