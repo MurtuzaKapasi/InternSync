@@ -1,65 +1,26 @@
+const express = require('express');
+const dotenv = require('dotenv').config();
+const connectDB = require('./config/dbConnection');
+const errorHandler = require('./middleware/errorHandler');
 
-// server.mjs
-import express from 'express';
-import fileUpload from 'express-fileupload';
-import fetch from 'node-fetch';
-import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
+connectDB();
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Enable CORS for all origins
-app.use(cors());
+app.use(express.json());
 
-const port = 3000;
+app.use("/api/user", require("./routes/user"));
+app.use("/api/applicant", require("./routes/applicant"));
+app.use("/api/recruiter", require("./routes/recruiter"));
+app.use("/api/application", require("./routes/application"));
+app.use("/api/feedback", require("./routes/feedback"));
+app.use("/api/job", require("./routes/job"));
+app.use("/api/resume", require("./routes/resume"));
+app.use("/api/avatar", require("./routes/avatar"));
 
-
-app.use(express.static(join(__dirname, 'public')));
-app.use(fileUpload());
+app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Example app listening at http://localhost:${port}`);
 });
 
-app.post('/upload', async (req, res) => {
-  console.log('Request body:', req.body);
-  console.log('Request files:', req.files);
-
-  try {
-    if (!req.files || !req.files.resume) {
-      console.log('No resume uploaded.');
-      return res.status(400).send('No resume uploaded.');
-    }
-
-    const resumeFile = req.files.resume;
-
-    // Move the uploaded file to a folder (e.g., 'resumes')
-    const uploadPath = join(__dirname, 'resumes', resumeFile.name);
-    await resumeFile.mv(uploadPath);
-
-    // Call the resume parsing API with the uploaded resume file
-    const apiKey = 'wo19mDF9boJyTT8G8NUBywvsr9luH0XI';
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'apikey': apiKey,
-        'Content-Type': 'application/octet-stream' // Set content type for file upload
-      },
-      body: resumeFile.data // Send the resume file data as the request body
-    };
-
-    const response = await fetch('https://api.apilayer.com/resume_parser/upload', requestOptions);
-    const parsedResume = await response.text();
-
-    // Return the parsed resume to the client
-    console.log('Parsed resume:', parsedResume);
-    res.send(parsedResume);
-  } catch (error) {
-    console.error('Error parsing resume:', error);
-    res.status(500).send('Error parsing resume');
-  }
-});

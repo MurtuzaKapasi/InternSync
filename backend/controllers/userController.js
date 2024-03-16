@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-const User = require('../models/user');
+const User = require('../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -55,21 +55,22 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route POST /api/user
 //@access Public
 const createUser = asyncHandler(async (req, res) => {
-    const {name, email, mobile, password, role} = req.body;
+    let userDetails = req.body;
 
-    if(!name || !email || !mobile || !password || !role){
+    if(!userDetails.name || !userDetails.email || !userDetails.mobile || !userDetails.password || !userDetails.role){
         return res.status(400).json({message: 'Please fill all fields'});
     }
 
-    const userAvailable = await User.findOne({ email });
+    const userAvailable = await User.findOne({ email : userDetails.email });
     if(userAvailable){
         return res.status(400).json({message: 'User already exists'});
     }
     // hash password
     const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(password, salt);
+    const hashedPassword = bcrypt.hashSync(userDetails.password, salt);
 
-    const user = await User.create({name, email, mobile, password : hashedPassword, role});
+    userDetails.password = hashedPassword;
+    const user = await User.create({...userDetails});
 
     console.log(user);
     if(user){
