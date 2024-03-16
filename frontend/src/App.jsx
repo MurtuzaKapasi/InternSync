@@ -5,8 +5,6 @@ import Intern from './pages/dashboard/Intern/Intern';
 import Register from './pages/register/Register';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecruiterCard from './pages/dashboard/Intern/RecruiterCard';
-import Register from './pages/register/Register';
-import Loginpage from './pages/loginpage/Loginpage';
 import PDFUpload from './pages/PDFUpload';
 function App() {
 
