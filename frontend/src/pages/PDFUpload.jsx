@@ -8,18 +8,27 @@ function PDFUpload() {
 
   const handleFileUpload = async (event) => {
     try {
-      console.log("this is event target ", event.target)
       const formData = new FormData();
       const file = event.target.files[0];
-      formData.append('file', file);
-
+      formData.append('resume', file); // Ensure the correct field name is used
+      console.log('file uploadded' , file);
       const response = await axios.post('/upload', formData);
       setText(response.data);
     } catch (error) {
-      console.error('Error uploading file:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        console.error('Server Error:', error.response.data);
+      } else if (error.request) {
+        // The request was made but no response was received
+        console.error('No response received:', error.request);
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        console.error('Error:', error.message);
+      }
     }
   };
-
+  
   return (
     <div>
       <input type="file" onChange={handleFileUpload} />
