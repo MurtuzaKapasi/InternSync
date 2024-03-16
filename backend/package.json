@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "Murtuza Manoj Siddheya Mahesh",
   "license": "ISC",
@@ -18,5 +19,6 @@
     "natural": "^6.12.0",
     "node-fetch": "^3.3.2",
     "pdf-parse": "^1.1.1"
+
   }
 }
