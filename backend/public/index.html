@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to string</title>
+</head>
+<body>
+    <input type="file" id="inpfile">
+    <button type="button" id="btnupload">Convert</button>
+    <br><br>
+    <textarea id="textarea" cols="30" rows="10"></textarea>
+    <script >
+        const input = document.getElementById('inpfile')
+        const btnupload = document.getElementById('btnupload')
+        const textarea = document.getElementById('textarea')
+
+        btnupload.addEventListener('click', () => {
+            const formdata = new FormData();
+            formdata.append('file', input.files[0])
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formdata
+            }).then(res => res.text())
+              .then(data => {
+                textarea.value = data
+            });
+        });
+    </script>
+</body>
+</html>
