@@ -56,8 +56,7 @@ const loginUser = asyncHandler(async (req, res) => {
 //@access Public
 const createUser = asyncHandler(async (req, res) => {
     let userDetails = req.body;
-
-    if(!userDetails.name || !userDetails.email || !userDetails.mobile || !userDetails.password || !userDetails.role){
+    if(!userDetails.fullName || !userDetails.email || !userDetails.mobile || !userDetails.password || !userDetails.role){
         return res.status(400).json({message: 'Please fill all fields'});
     }
 
@@ -84,10 +83,10 @@ const createUser = asyncHandler(async (req, res) => {
 });
 
 //@desc Update user
-//@route PUT /api/user/:id
+//@route PUT /api/user/
 //@access Public
 const updateUser = asyncHandler(async (req, res) => {
-    const user = await User.findById(req.params.id).select('-password');
+    const user = await User.findById(req.user.id).select('-password');
     if(!user) {
         return res.status(404).json({message: 'User not found'});
     }
