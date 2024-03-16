@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Homepage from './pages/homepage/Homepage';
+import Loginpage from './pages/loginpage/Loginpage'
 import Intern from './pages/dashboard/Intern/Intern';
+import Register from './pages/register/Register';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecruiterCard from './pages/dashboard/Intern/RecruiterCard';
 import Register from './pages/register/Register';
@@ -18,7 +18,6 @@ function App() {
         <Route path="/intern/:id" element={<RecruiterCard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Loginpage />} />
-        <Route path='*' element={<Homepage />} />
         <Route path='/internReg' element={<PDFUpload />} />
       </Routes>
     </BrowserRouter>
