@@ -45,8 +45,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
         // Set the token as a cookie in the response
         res.cookie('token', token, {
-            httpOnly: true,
-            // Add other cookie options if needed
+            httpOnly: true
         });
 
         // Respond with success message, user details, and token

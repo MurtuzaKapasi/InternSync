@@ -6,13 +6,13 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/', getApplicants);
 
-router.post('/:id',getApplicant);
+router.post('/',getApplicant);
 
 router.post('/', createApplicant);
 
-router.put('/:id', updateApplicant);
+router.put('/', updateApplicant);
 
-router.delete('/:id', deleteApplicant);
+router.delete('/', deleteApplicant);
 
 module.exports = router;
 

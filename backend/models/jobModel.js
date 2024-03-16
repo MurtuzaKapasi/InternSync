@@ -7,9 +7,9 @@ const jobSchema = new mongoose.Schema({
   skills: [String],
   experience: { type : String },
   education: { type : String },
-  salary: Number,
+  salary: {type : Number},
   location: { type : String },
-  isActive: Boolean,
+  isActive: {type : Boolean, default: true},
   createdAt: { type: Date, default: Date.now },
   recruiterId: { type: mongoose.Schema.Types.ObjectId, ref: 'Recruiter' }
 });

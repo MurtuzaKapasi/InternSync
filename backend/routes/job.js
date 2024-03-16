@@ -6,13 +6,13 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/', getJobs);
 
-router.post('/:id',getJob);
+router.post('/',getJob);
 
 router.post('/', createJob);
 
-router.put('/:id', updateJob);
+router.put('/', updateJob);
 
-router.delete('/:id', deleteJob);
+router.delete('/', deleteJob);
 
 module.exports = router;
 
