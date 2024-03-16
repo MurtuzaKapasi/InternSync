@@ -34,8 +34,8 @@ const createRecruiter = asyncHandler(async (req, res) => {
     }
     const userId = req.user.id;
     const user = await User.findOne({ _id : userId}).select('-password');
-    const { company, jobTitle, department, bio } = req.body;
-    const recruiter = await Recruiter.create({userId, company, jobTitle, department, bio});
+    const { company, jobTitle, department } = req.body;
+    const recruiter = await Recruiter.create({userId, company, jobTitle, department});
     if(recruiter) {
         res.status(201).json({message: 'Success', user, recruiter});
     } else {
@@ -58,7 +58,6 @@ const updateRecruiter = asyncHandler(async (req, res) => {
         recruiter.company = req.body.company || recruiter.company;
         recruiter.jobTitle = req.body.jobTitle || recruiter.jobTitle;
         recruiter.department = req.body.department || recruiter.department;
-        recruiter.bio = req.body.bio || recruiter.bio;
         const updatedRecruiter = await recruiter.save();
         res.status(200).json({message: 'Success', recruiter: updatedRecruiter});
     } else {
