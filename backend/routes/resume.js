@@ -4,7 +4,7 @@ const {getResumes, getResume, createResume, updateResume, deleteResume} = requir
 const validateToken = require('../middleware/validateTokenHandler');
 
 router.use(validateToken);
-router.get('/', getResumes);
+router.get('/all', getResumes);
 
 router.post('/:id',getResume);
 

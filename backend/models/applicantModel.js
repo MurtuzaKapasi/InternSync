@@ -22,7 +22,7 @@ const certificationSchema = new mongoose.Schema({
 });
 
 const applicantSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', unique: true},
   resume: {
     type : mongoose.Schema.Types.ObjectId,
     ref: 'Resume'

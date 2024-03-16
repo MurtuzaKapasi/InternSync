@@ -4,9 +4,9 @@ const {getRecruiters, getRecruiter, createRecruiter, updateRecruiter, deleteRecr
 const validateToken = require('../middleware/validateTokenHandler');
 
 router.use(validateToken);
-router.get('/', getRecruiters);
+router.get('/all', getRecruiters);
 
-router.post('/',getRecruiter);
+router.get('/',getRecruiter);
 
 router.post('/', createRecruiter);
 

@@ -4,9 +4,9 @@ const {getApplicants, getApplicant, createApplicant, updateApplicant, deleteAppl
 const validateToken = require('../middleware/validateTokenHandler');
 
 router.use(validateToken);
-router.get('/', getApplicants);
+router.get('/all', getApplicants);
 
-router.post('/',getApplicant);
+router.get('/',getApplicant);
 
 router.post('/', createApplicant);
 

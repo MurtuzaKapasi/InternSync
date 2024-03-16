@@ -4,7 +4,7 @@ const {getAvatars, getAvatar, createAvatar, updateAvatar, deleteAvatar} = requir
 const validateToken = require('../middleware/validateTokenHandler');
 
 router.use(validateToken);
-router.get('/', getAvatars);
+router.get('/all', getAvatars);
 
 router.post('/:id',getAvatar);
 

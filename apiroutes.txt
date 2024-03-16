@@ -56,8 +56,119 @@
 
 /api/applicant :    
     get : fetch user details of particular user
+        i/p : no i/p
+        o/p : {
+            "message": "Success",
+            "user": {
+                "_id": "65f5b62ab4fbd773ab17548b",
+                "email": "john.doe@example.com",
+                "role": "applicant",
+                "fullName": "Moye moye",
+                "mobile": "1234567890",
+                "bio": "Experienced software developer with expertise in JavaScript and Node.js.",
+                "website": "https://johndoe.com",
+                "socialMediaLinks": {
+                "linkedin": "https://www.linkedin.com/in/johndoe",
+                "github": "https://github.com/johndoe"
+                },
+                "createdAt": "2024-03-16T15:09:30.584Z",
+                "__v": 0
+            },
+            "applicant": {
+                "_id": "65f5e6fdb89d0da6f757029c",
+                "userId": "65f5b62ab4fbd773ab17548b",
+                "education": [
+                {
+                    "institution": "University of Example",
+                    "degree": "Bachelor of Science in Computer Science",
+                    "graduationYear": 2020,
+                    "percentage": 3.5,
+                    "_id": "65f5e6fdb89d0da6f757029d"
+                },
+                {
+                    "institution": "Example College",
+                    "degree": "High School Diploma",
+                    "graduationYear": 2016,
+                    "percentage": 3.8,
+                    "_id": "65f5e6fdb89d0da6f757029e"
+                }
+                ],
+                "workExperience": [
+                {
+                    "company": "Tech Solutions Inc.",
+                    "position": "Software Engineer",
+                    "startDate": "2018-06-01T00:00:00.000Z",
+                    "endDate": "2021-12-31T00:00:00.000Z",
+                    "achievements": [
+                    "Developed scalable web applications using Node.js and React.js",
+                    "Led a team of developers for a successful project delivery"
+                    ],
+                    "_id": "65f5e6fdb89d0da6f757029f"
+                }
+                ],
+                "skills": [
+                "JavaScript",
+                "Node.js",
+                "React.js",
+                "MongoDB",
+                "HTML",
+                "CSS"
+                ],
+                "certifications": [
+                {
+                    "name": "Certified Node.js Developer",
+                    "issuer": "Node.js Foundation",
+                    "dateObtained": "2020-08-15T00:00:00.000Z",
+                    "_id": "65f5e6fdb89d0da6f75702a0"
+                }
+                ],
+                "applications": [],
+                "createdAt": "2024-03-16T18:37:49.940Z",
+                "__v": 0
+            }
+            }
     put : update user details of particular user
     post : create user
+        i/p  : {
+        "userId": "65f5b62ab4fbd773ab17548b",
+        "education": [
+            {
+            "institution": "University of Example",
+            "degree": "Bachelor of Science in Computer Science",
+            "graduationYear": 2020,
+            "percentage": 3.5
+            },
+            {
+            "institution": "Example College",
+            "degree": "High School Diploma",
+            "graduationYear": 2016,
+            "percentage": 3.8
+            }
+        ],
+        "workExperience": [
+            {
+            "company": "Tech Solutions Inc.",
+            "position": "Software Engineer",
+            "startDate": "2018-06-01",
+            "endDate": "2021-12-31",
+            "achievements": [
+                "Developed scalable web applications using Node.js and React.js",
+                "Led a team of developers for a successful project delivery"
+            ]
+            }
+        ],
+        "skills": ["JavaScript", "Node.js", "React.js", "MongoDB", "HTML", "CSS"],
+        "certifications": [
+            {
+            "name": "Certified Node.js Developer",
+            "issuer": "Node.js Foundation",
+            "dateObtained": "2020-08-15"
+            }
+        ],
+        "createdAt": "2022-11-13T10:42:00.000Z",
+        "updatedAt": "2022-11-14T08:20:00.000Z"
+        }
+
     delete : delete user
 
 /api/avatar :    

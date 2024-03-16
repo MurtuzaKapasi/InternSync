@@ -6,11 +6,11 @@ const Application = require('../models/applicationModel');
 //@access Private
 const getApplications = asyncHandler(async (req, res) => {
     if(req.user.role === 'recruiter') {
-           const {jobId} = req.body;
-        let applications = await Application.find({jobId});
+        const {jobId} = req.body;
+        const applications = await Application.find({jobId});
         res.status(200).json({message: 'Success', applications});
     }
-    let applications = await Application.find({applicantId : req.user.id});
+    const applications = await Application.find({applicantId : req.user.id});
     res.status(200).json({message: 'Success', applications});
 });
 

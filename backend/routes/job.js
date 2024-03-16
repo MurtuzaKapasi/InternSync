@@ -4,7 +4,7 @@ const {getJobs, getJob, createJob, updateJob, deleteJob} = require('../controlle
 const validateToken = require('../middleware/validateTokenHandler');
 
 router.use(validateToken);
-router.get('/', getJobs);
+router.get('/all', getJobs);
 
 router.post('/',getJob);
 

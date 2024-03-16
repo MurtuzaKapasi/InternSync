@@ -33,10 +33,11 @@ const createRecruiter = asyncHandler(async (req, res) => {
         throw new Error('Not authorized as a recruiter');
     }
     const userId = req.user.id;
+    const user = await User.findOne({ _id : userId}).select('-password');
     const { company, jobTitle, department, bio } = req.body;
     const recruiter = await Recruiter.create({userId, company, jobTitle, department, bio});
     if(recruiter) {
-        res.status(201).json({message: 'Success'});
+        res.status(201).json({message: 'Success', user, recruiter});
     } else {
         res.status(400);
         throw new Error('Invalid recruiter data');
@@ -78,7 +79,7 @@ const deleteRecruiter = asyncHandler(async (req, res) => {
     const userId = req.user.id;
     const recruiter = await Recruiter.findOne({userId});
     if(recruiter) {
-        await recruiter.remove();
+        await recruiter.deleteOne();
         res.status(200).json({message: 'Success'});
     } else {
         res.status(404);
