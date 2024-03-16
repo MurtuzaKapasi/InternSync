@@ -9,7 +9,7 @@ const Homepage = () => {
   };
 
   const handleGetStartedClick = () => {
-    navigate('/register');
+    navigate('/multiregister');
   };
 
   return (
