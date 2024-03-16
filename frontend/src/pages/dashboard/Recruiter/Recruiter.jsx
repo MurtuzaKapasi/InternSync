@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import RecruiterCard from './RecruiterCard';
+import { Link } from 'react-router-dom';
 
-const Intern = () => {
+const Inter = () => {
   const [selectedRecruiter, setSelectedRecruiter] = useState(null);
-  const navigate = useNavigate();
 
   const recruiters = [
     {
@@ -78,7 +76,7 @@ const Intern = () => {
 
   const handleRecruiterClick = (recruiter) => {
     setSelectedRecruiter(recruiter);
-    navigate("/recruiter/")
+    
   };
 
   return (
@@ -117,32 +115,31 @@ const Intern = () => {
       <div className='w-full h-auto'>
         <div className='flex flex-wrap gap-7'>
           {recruiters.filter(recruiter => recruiter.status === 'active').map((recruiter, index) => (
-            <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
-              <Link to={`/intern/${recruiter.id}`} >
-                <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer" onClick={() => handleRecruiterClick(recruiter)}>
-                  <div className='flex justify-center items-center my-2'>
-                    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
 
-                  </div>
-                  <h2 className="text-xl font-semibold">{recruiter.name}</h2>
-                  <p className="text-gray-600">
-                    <b>Skills</b></p>
-                  <div className="flex flex-wrap mt-2">
-                    {recruiter.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="text-zinc-600 bg-purple-200 py-1 px-2 mr-1 mb-1 rounded-lg"
-                        style={{ maxWidth: 'calc(100% - 1rem)' }} // Limit width to card width
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-gray-600"><b>Salary </b> : {recruiter.salary}</p>
-                  <p className="text-gray-600"><b>Location </b> : {recruiter.location}</p>
-                  <p className="text-gray-600"><b>Duration </b> : {recruiter.duration}</p>
+            <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
+              <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer" onClick={() => handleRecruiterClick(recruiter)}>
+                <div className='flex justify-center items-center my-2'>
+                  <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
+
                 </div>
-              </Link>            
+                <h2 className="text-xl font-semibold">{recruiter.name}</h2>
+                <p className="text-gray-600">
+                  <b>Skills</b></p>
+                <div className="flex flex-wrap mt-2">
+                  {recruiter.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="text-zinc-600 bg-purple-200 py-1 px-2 mr-1 mb-1 rounded-lg"
+                      style={{ maxWidth: 'calc(100% - 1rem)' }} // Limit width to card width
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-gray-600"><b>Salary </b> : {recruiter.salary}</p>
+                <p className="text-gray-600"><b>Location </b> : {recruiter.location}</p>
+                <p className="text-gray-600"><b>Duration </b> : {recruiter.duration}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -154,4 +151,4 @@ const Intern = () => {
   );
 }
 
-export default Intern;
+export default Inter;
