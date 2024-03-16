@@ -6,7 +6,7 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/all', getResumes);
 
-router.post('/:id',getResume);
+router.get('/:id',getResume);
 
 router.post('/', createResume);
 

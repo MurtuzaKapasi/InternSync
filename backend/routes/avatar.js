@@ -6,7 +6,7 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/all', getAvatars);
 
-router.post('/:id',getAvatar);
+router.get('/:id',getAvatar);
 
 router.post('/', createAvatar);
 

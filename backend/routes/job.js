@@ -6,7 +6,7 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/all', getJobs);
 
-router.post('/',getJob);
+router.get('/',getJob);
 
 router.post('/', createJob);
 

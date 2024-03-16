@@ -6,7 +6,7 @@ const validateToken = require('../middleware/validateTokenHandler');
 router.use(validateToken);
 router.get('/all', getApplications);
 
-router.post('/',getApplication);
+router.get('/',getApplication);
 
 router.post('/', createApplication);
 

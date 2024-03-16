@@ -45,8 +45,8 @@ const createApplication = asyncHandler(async (req, res) => {
 //@route PUT /api/application/
 //@access Private
 const updateApplication = asyncHandler(async (req, res) => {
-    const {applicationId, applicationDetails} = req.body;
-    const application = await Application.findById(applicationId);
+    const applicationDetails = req.body;
+    const application = await Application.findById(applicationDetails.applicationId);
     if(application) {
         application.status = applicationDetails.status || application.status;
         application.feedback = applicationDetails.feedback || application.feedback;
@@ -69,7 +69,7 @@ const deleteApplication = asyncHandler(async (req, res) => {
     const {applicationId} = req.body;
     const application = await Application.findById(applicationId);
     if(application) {
-        await application.remove();
+        await application.deleteOne();
         res.status(200).json({message: 'Success', application});
     } else {
         res.status(404);

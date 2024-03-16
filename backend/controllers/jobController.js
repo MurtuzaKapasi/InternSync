@@ -44,8 +44,9 @@ const updateJob = asyncHandler(async (req, res) => {
         res.status(401);
         throw new Error('Not authorized as recruiter');
     }
-    const {jobId, jobDescription} = req.body;
-    const job = await Job.findById(jobId);
+    const jobDescription = req.body;
+
+    const job = await Job.findById(jobDescription.jobId);
     if(job) {
         job.title = jobDescription.title || job.title;
         job.description = jobDescription.description || job.description;
@@ -54,7 +55,7 @@ const updateJob = asyncHandler(async (req, res) => {
         job.experience = jobDescription.experience || job.experience;
         job.location = jobDescription.location || job.location;
         job.salary = jobDescription.salary || job.salary;
-        job.save();
+        await job.save();
         res.status(200).json({message: 'Success', job});
     } else {
         res.status(404);
@@ -73,7 +74,7 @@ const deleteJob = asyncHandler(async (req, res) => {
     const {jobId} = req.body;
     const job = await Job.findById(jobId);
     if(job) {
-        await job.remove();
+        await job.deleteOne();
         res.status(200).json({message: 'Success', job});
     } else {
         res.status(404);
