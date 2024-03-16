@@ -1,0 +1,103 @@
+/api/user  :   
+    get : fetch user details of particular user
+        i/p : 
+            {
+                "email": "john.doe@example.com",
+                "password": "password123",
+                "role": "applicant",
+                "fullName": "Moye moye",
+                "mobile": "1234567890",
+                "bio": "Experienced software developer with expertise in JavaScript and Node.js.",
+                "website": "https://johndoe.com",
+                "socialMediaLinks": {
+                    "linkedin": "https://www.linkedin.com/in/johndoe",
+                    "github": "https://github.com/johndoe"
+                }
+            }
+        o/p  : 
+                   
+    put : update user details of particular user
+        i/p:{
+
+            }
+
+    post : create user
+        i/p: {
+
+            }
+
+    delete : delete user  ( no input required )
+
+/api/user/all  : get :  get all users  ( no input required )
+/api/user/login :  post   
+    i/p : {
+        "email" : "",
+        "password" : ""
+    }
+/api/user/logout :  post  ( no input required )
+
+/api/recruiter :    
+    get : fetch user details of particular recruiter ( no input required )
+    put : update user details of particular recruiter
+        i/p: {
+            
+        }
+
+    post : create recruiter
+        i/p: {
+             
+        }
+
+    delete : delete recruiter
+        i/p: {
+
+        }
+
+
+/api/applicant :    
+    get : fetch user details of particular user
+    put : update user details of particular user
+    post : create user
+    delete : delete user
+
+/api/avatar :    
+    get : fetch user details of particular user
+    put : update user details of particular user
+    post : create user
+    delete : delete user
+
+/api/resume :    
+    get : fetch user details of particular user
+    put : update user details of particular user
+    post : create user
+    delete : delete user
+
+
+/api/job:   
+    get : fetch user details of particular user
+        i/p : { jobId }
+    put : update user details of particular user
+        i/p : {
+            jobId, title, description, skills[] , experience(string), education,salary (number),
+            location, isActive( if false only)
+        }
+    post : create user
+        i/p : {
+            title, description, skills[] , experience(string), education,salary (number),
+            location, isActive( if false only)
+        }
+    delete : delete user 
+        I/P : { jobId }
+
+/api/application :   
+    get : fetch user details of particular application
+        i/p : { applicationId }
+    put : update user details of particular application
+        i/p : { applicationId, jobId, applicantId, status, feedback}
+    post : create application
+        i/p : { jobId, applicantId, status, feedback}
+    delete : delete application
+        i/p : {applicationId} only applicant can delete application 
+
+    /api/application/all : get : 
+        i/p : { jobId} only if user is recruiter else no input
