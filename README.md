@@ -43,7 +43,44 @@ This project is licensed under the MIT License.
 * React.js
 * Node.js
 * MongoDB
-  
+
+
+**Hero  image** 
+
+![hero png](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/0fa66c85-b37f-44da-b34c-ba75d5654986)
+
+**Register Form**
+
+![register](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/c273de3f-58ad-4683-8071-1c95151b4503)
+
+
+**login**
+
+![login](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/92d41fe8-9c38-4185-91fc-4000c7df0989)
+
+
+**Dashboard**
+![dashboard](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/89213516-585b-4977-a900-ef59e4b67740)
+
+
+**Detailed Mentor Description**
+![alt text](/Screenshots/mentorDetail.png)
+
+**job_post**
+
+![job_post](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/d11efc91-c30d-4952-b38d-5c19eca4b43c)
+
+**manual**
+![manual_info](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/4874bf11-6d03-441c-976c-2ad0e0c4e24a)
+
+**upload**
+![upload_cv](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/78d5e0b6-7866-4df2-b1d1-2b6d6164aa59)
+
+**recommendation**
+![recommendation](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/bdca3f49-2730-4596-a94e-0677a3b64a46)
+
+
+
 ## Deployed Url
 [Link to Deployed Solution]()
 
