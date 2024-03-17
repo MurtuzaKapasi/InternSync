@@ -15,7 +15,7 @@ const Register = ()=> {
       <div className=" p-4">
 
         <div className="bg-[#ececec] h-[95vh] flex flex-col lg:flex-row justify-center items-center rounded-xl shadow-md shadow-zinc-500">
-          <div className="lg:w-1/2 flex flex-col justify-center items-center border-r lg:border-10 border-gray-300 pr-4 lg:pr-0">
+          <div className="lg:w-1/2 flex flex-col justify-center items-center border-r lg:border-10 border-gray-500 pr-4 lg:pr-0">
             <img
               src="./assets/seeker_img.svg"
               alt="Job Seeker"
