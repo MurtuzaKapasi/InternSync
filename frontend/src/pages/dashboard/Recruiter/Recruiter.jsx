@@ -1,82 +1,91 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import InternCard from './InternCard'; // Assuming you have a component for displaying intern cards
 
-const Inter = () => {
-  const [selectedRecruiter, setSelectedRecruiter] = useState(null);
+const Recruiter = () => {
+  const [selectedIntern, setSelectedIntern] = useState(null);
+  const navigate = useNavigate();
 
-  const recruiters = [
+  // Sample data for recruiters and their assigned interns
+  const intern = [
     {
       id: 1,
-      name: 'Recruiter 1',
+      name: 'Intern 1',
       skills: ['JavaScript', 'React', 'Node.js'],
-      description: 'We are looking for a talented JavaScript developer to join our team. The ideal candidate should have strong skills in React and Node.js, and be passionate about creating high-quality web applications. Responsibilities include developing frontend and backend components, collaborating with other team members, and ensuring code quality and performance.',
-      salary: '$60,000 - $80,000',
-      duration: 'Full-time',
-      status: 'active',
-      location: ' pune'
+      education: 'Bachelor of Computer Science',
+      experience: '2 years of internship experience',
+      bio: 'Passionate about web development and creating meaningful projects.',
+      mobile: '123-456-7890',
+      socialMedia: {
+        linkedin: 'https://www.linkedin.com/intern1',
+        github: 'https://www.github.com/intern1'
+      },
+      certifications: ['React Developer Certification', 'Node.js Certification']
     },
     {
       id: 2,
-      name: 'Recruiter 2',
+      name: 'Intern 2',
       skills: ['Python', 'Django', 'REST API'],
-      description: 'We are seeking a Python developer with experience in Django and building RESTful APIs. The ideal candidate should have a strong understanding of backend development and be capable of designing and implementing scalable and efficient solutions. Responsibilities include developing and maintaining backend services, writing clean and maintainable code, and collaborating with cross-functional teams.',
-      salary: '$70,000 - $90,000',
-      duration: 'Contract',
-      status: 'active',
-      location: ' pune'
-    },
-    {
-      id: 2,
-      name: 'Recruiter 2',
-      skills: ['Python', 'Django', 'REST API'],
-      description: 'We are seeking a Python developer with experience in Django and building RESTful APIs. The ideal candidate should have a strong understanding of backend development and be capable of designing and implementing scalable and efficient solutions. Responsibilities include developing and maintaining backend services, writing clean and maintainable code, and collaborating with cross-functional teams.',
-      salary: '$70,000 - $90,000',
-      duration: 'Contract',
-      status: 'active',
-      location: ' pune'
-    },
-    {
-      id: 2,
-      name: 'Recruiter 2',
-      skills: ['Python', 'Django', 'REST API'],
-      description: 'We are seeking a Python developer with experience in Django and building RESTful APIs. The ideal candidate should have a strong understanding of backend development and be capable of designing and implementing scalable and efficient solutions. Responsibilities include developing and maintaining backend services, writing clean and maintainable code, and collaborating with cross-functional teams.',
-      salary: '$70,000 - $90,000',
-      duration: 'Contract',
-      status: 'active',
-      location: ' pune'
-    },
-    {
-      id: 2,
-      name: 'Recruiter 2',
-      skills: ['Python', 'Django', 'REST API'],
-      description: 'We are seeking a Python developer with experience in Django and building RESTful APIs. The ideal candidate should have a strong understanding of backend development and be capable of designing and implementing scalable and efficient solutions. Responsibilities include developing and maintaining backend services, writing clean and maintainable code, and collaborating with cross-functional teams.',
-      salary: '$70,000 - $90,000',
-      duration: 'Contract',
-      status: 'active',
-      location: ' pune'
+      education: 'Master of Computer Engineering',
+      experience: '1 year of internship experience',
+      bio: 'Experienced in building RESTful APIs using Django and Python.',
+      mobile: '987-654-3210',
+      socialMedia: {
+        linkedin: 'https://www.linkedin.com/intern2',
+        github: 'https://www.github.com/intern2'
+      },
+      certifications: ['Python Developer Certification', 'Django Certification']
     },
     {
       id: 3,
-      name: 'Recruiter 3',
-      skills: ['Java', 'C++', 'SpringBoot', 'Hibernate', 'SQL', 'MySQL'],
-      description: 'We are hiring a Java developer to join our team. The successful candidate will work on developing enterprise-grade applications using Java, Spring Boot, and Hibernate. Responsibilities include designing and implementing robust and scalable solutions, writing clean and maintainable code, and collaborating with team members to deliver high-quality software products.',
-      salary: '$80,000 - $100,000',
-      duration: 'Part-time',
-      status: 'active',
-      location: ' pune'
-    }
+      name: 'Intern 3',
+      skills: ['Java', 'Spring Boot', 'Hibernate', 'SQL'],
+      education: 'Bachelor of Science in Computer Engineering',
+      experience: '3 years of internship experience',
+      bio: 'Skilled in developing enterprise-grade applications using Java and Spring Boot.',
+      mobile: '456-789-0123',
+      socialMedia: {
+        linkedin: 'https://www.linkedin.com/intern3',
+        github: 'https://www.github.com/intern3'
+      },
+      certifications: ['Java Developer Certification', 'Spring Boot Certification']
+    },
+    {
+      id: 4,
+      name: 'Intern 4',
+      skills: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+      education: 'Bachelor of Technology in Computer Science',
+      experience: '1.5 years of internship experience',
+      bio: 'Frontend developer with expertise in building responsive web applications.',
+      mobile: '789-012-3456',
+      socialMedia: {
+        linkedin: 'https://www.linkedin.com/intern4',
+        github: 'https://www.github.com/intern4'
+      },
+      certifications: ['Frontend Development Certification', 'Bootstrap Certification']
+    },
+    {
+      id: 5,
+      name: 'Intern 5',
+      skills: ['Ruby', 'Ruby on Rails', 'RSpec'],
+      education: 'Bachelor of Engineering in Information Technology',
+      experience: '1 year of internship experience',
+      bio: 'Ruby on Rails enthusiast with a passion for test-driven development.',
+      mobile: '012-345-6789',
+      socialMedia: {
+        linkedin: 'https://www.linkedin.com/intern5',
+        github: 'https://www.github.com/intern5'
+      },
+      certifications: ['Ruby on Rails Developer Certification', 'RSpec Certification']
+    },
   ];
 
 
-  const interData = {
-    id: 1,
-    name: 'Murtuza',
-    email: 'I8sJt@example.com',
-  }
 
-  const handleRecruiterClick = (recruiter) => {
-    setSelectedRecruiter(recruiter);
-    
+
+  const handleInternClick = (intern) => {
+    setSelectedIntern(intern);
+    navigate(`/intern/${intern.id}`);
   };
 
   return (
@@ -85,9 +94,7 @@ const Inter = () => {
       <div className="w-full h-20 py-2 rounded-2xl shadow-2xl bg-zinc-800 text-white pl-10 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
-          <h1 className='text-xl'>
-            {interData.name}
-          </h1>
+          <h1 className='text-xl'>Recruiter Dashboard</h1>
         </div>
         <div className='flex gap-8 ml-auto'>
           {/* Filter icon */}
@@ -108,47 +115,59 @@ const Inter = () => {
 
       {/* Dashboard */}
       <div className='p-5 w-full h-auto flex gap-20'>
-        <h1 className='font-bold text-3xl'>Recruiters <span className='text-violet-500'>{recruiters.length}</span></h1>
+        <h1 className='font-bold text-3xl'>Assigned Interns</h1>
       </div>
 
-      {/* Recruiter Cards */}
+      {/* Intern Cards */}
       <div className='w-full h-auto'>
-        <div className='flex flex-wrap gap-7'>
-          {recruiters.filter(recruiter => recruiter.status === 'active').map((recruiter, index) => (
-
-            <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
-              <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer" onClick={() => handleRecruiterClick(recruiter)}>
+      <div className='flex flex-wrap gap-7'>
+        {intern.map((intern, index) => (
+          <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
+            <Link to={`/intern/${intern.id}`} >
+              <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer">
                 <div className='flex justify-center items-center my-2'>
                   <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
-
                 </div>
-                <h2 className="text-xl font-semibold">{recruiter.name}</h2>
+                <h2 className="text-xl font-semibold">{intern.name}</h2>
                 <p className="text-gray-600">
-                  <b>Skills</b></p>
-                <div className="flex flex-wrap mt-2">
-                  {recruiter.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="text-zinc-600 bg-purple-200 py-1 px-2 mr-1 mb-1 rounded-lg"
-                      style={{ maxWidth: 'calc(100% - 1rem)' }} // Limit width to card width
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  <b>Skills:</b> {intern.skills.join(', ')}
+                </p>
+                <p className="text-gray-600">
+                  <b>Education:</b> {intern.education}
+                </p>
+                <p className="text-gray-600">
+                  <b>Experience:</b> {intern.experience}
+                </p>
+                <p className="text-gray-600">
+                  <b>Bio:</b> {intern.bio}
+                </p>
+                <p className="text-gray-600">
+                  <b>Mobile:</b> {intern.mobile}
+                </p>
+                <div>
+                  <b>Certifications:</b>
+                  <ul>
+                    {intern.certifications.map((certification, index) => (
+                      <li key={index}>{certification}</li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="text-gray-600"><b>Salary </b> : {recruiter.salary}</p>
-                <p className="text-gray-600"><b>Location </b> : {recruiter.location}</p>
-                <p className="text-gray-600"><b>Duration </b> : {recruiter.duration}</p>
+                <div>
+                  <b>Social Media:</b>
+                  <ul>
+                    <li><a href={intern.socialMedia.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href={intern.socialMedia.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            </Link>
+          </div>
+        ))}
       </div>
-
-
+    </div>
 
     </div>
   );
 }
 
-export default Inter;
+export default Recruiter;

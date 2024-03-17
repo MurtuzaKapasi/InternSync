@@ -62,7 +62,8 @@ const loginUser = asyncHandler(async (req, res) => {
 //@access Public
 const createUser = asyncHandler(async (req, res) => {
     let userDetails = req.body;
-    if(!userDetails.fullName || !userDetails.email || !userDetails.mobile || !userDetails.password || !userDetails.role){
+    console.log("userDetails are" ,userDetails);
+    if(!userDetails){
         return res.status(400).json({message: 'Please fill all fields'});
     }
 
@@ -76,13 +77,10 @@ const createUser = asyncHandler(async (req, res) => {
 
     userDetails.password = hashedPassword;
     const user = await User.create({...userDetails});
-
+    
     console.log(user);
     if(user){
-
-        res.status(200).json({ message: 'Success',
-            user
-        });
+        res.status(200).json({ message: 'Success', user});
     }else{
         res.status(400).json({ message: 'Invalid user data'});
     }

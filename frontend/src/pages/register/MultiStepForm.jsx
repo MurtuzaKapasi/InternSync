@@ -1,27 +1,46 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+
 
 function MultiStepForm() {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    fullname: '',
+    fullName: '',
     mobile: '',
     bio: '',
     portfolio: '',
     linkedin: '',
     github: '',
-    role: '',
+    role: '',   
+  });
+
+  const [recruiterformData, recruitersetFormData] = useState({
     companyName: '',
     jobTitle: '',
     position: '',
-    resume: null
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    if (name === 'role') {
+      // If the selected field is 'role', set it directly to the formData
+      setFormData({ ...formData, role: value });
+    } else {
+      // For other fields, update the formData as before
+      setFormData({ ...formData, [name]: value });
+    }
   };
+
+  const handleRecruiterChange = (e) => {
+    const { name, value } = e.target;
+    recruitersetFormData({ ...recruiterformData, [name]: value });
+  };
+
 
   const handleFileUpload = async (event) => {
     try {
@@ -46,11 +65,36 @@ function MultiStepForm() {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Send formData to server or perform desired action
-    console.log(formData);
-  };
+
+  // handling resume
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  console.log("form data", formData);
+  console.log("Recruiter form data", recruiterformData);
+  try {
+    const response = await axios.post('http://localhost:3000/api/user/', formData);
+    console.log("Users data Submitted", response.data);
+
+    if (formData.role === 'recruiter') {
+      const response2 = await axios.post('http://localhost:3000/api/recruiter/', recruiterformData);
+      console.log("Recruiters data submitted", response2.data);
+    }
+    navitate('/login');
+    // Reset form data or perform other actions upon successful submission
+  } catch (error) {
+    if (error.response) {
+      console.error('Server Error:', error.response.data);
+    } else if (error.request) {
+      // The request was made but no response was received
+      console.error('No response received:', error.request);
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      console.error('Error:', error.message);
+    }
+  }
+};
+
 
   const nextStep = () => {
     setStep(step + 1);
@@ -149,7 +193,7 @@ function MultiStepForm() {
                   className="px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 w-1/2 mb-2"
                 >
                   <option value="">Select Role</option>
-                  <option value="applicant">Applicant</option>
+                  <option value="applicant"  >Applicant</option>
                   <option value="recruiter">Recruiter</option>
                 </select>
 
@@ -195,13 +239,13 @@ function MultiStepForm() {
                 <div className='w-full max-h-screen  flex shadow-md shadow-zinc-500'>
                   <div className='bg-zinc-200 pt-10 pl-10 w-1/2'>
                     <label className="block mb-2">Company Name:</label>
-                    <input type="text" name="companyName" value={formData.companyName} onChange={handleChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2  w-1/2" />
+                    <input type="text" name="companyName" value={recruiterformData.companyName} onChange={handleRecruiterChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2  w-1/2" />
 
                     <label className="block mb-2">Job Title:</label>
-                    <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2 w-1/2" />
+                    <input type="text" name="jobTitle" value={recruiterformData.jobTitle} onChange={handleRecruiterChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2 w-1/2" />
 
                     <label className="block mb-2">Position:</label>
-                    <input type="text" name="position" value={formData.position} onChange={handleChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2 w-1/2" />
+                    <input type="text" name="position" value={recruiterformData.position} onChange={handleRecruiterChange} className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-3 py-2 mb-2 w-1/2" />
 
                     <div className='gap-3 flex mt-10 ml-10 '>
                       <button onClick={prevStep} className='bg-gray-500 hover:bg-gray-700  font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50'>Back</button>
@@ -225,8 +269,6 @@ function MultiStepForm() {
   return (
     <form onSubmit={handleSubmit}>
       {renderStep()}
-      
-
     </form>
   );
 }

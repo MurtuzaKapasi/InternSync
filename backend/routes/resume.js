@@ -8,6 +8,7 @@ router.get('/', getResumes);
 
 router.post('/:id',getResume);
 
+// only this is required for now
 router.post('/', createResume);
 
 router.put('/:id', updateResume);

@@ -11,8 +11,9 @@ const userSchema = new mongoose.Schema({
     ref: 'Avatar'
   },
   bio: { type: String },
-  website: { type: String },
-  socialMediaLinks: { type: Object },
+  portfolio: { type: String },
+  linkedin: { type: String },
+  github: { type: String },
   createdAt: { type: Date, default: Date.now }
 });
 

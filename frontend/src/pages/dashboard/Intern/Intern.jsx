@@ -118,7 +118,7 @@ const Intern = () => {
         <div className='flex flex-wrap gap-7'>
           {recruiters.filter(recruiter => recruiter.status === 'active').map((recruiter, index) => (
             <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
-              <Link to={`/intern/${recruiter.id}`} >
+              <Link to={`/recruiter/${recruiter.id}`} >
                 <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer" onClick={() => handleRecruiterClick(recruiter)}>
                   <div className='flex justify-center items-center my-2'>
                     <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
