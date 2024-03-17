@@ -58,13 +58,12 @@ This project is licensed under the MIT License.
 **Recruiter**
 ![manual_info](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/4874bf11-6d03-441c-976c-2ad0e0c4e24a)
 
-**upload**
-![upload_cv](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/78d5e0b6-7866-4df2-b1d1-2b6d6164aa59)
-
-
 **login**
 
 ![login](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/92d41fe8-9c38-4185-91fc-4000c7df0989)
+
+**upload**
+![upload_cv](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/78d5e0b6-7866-4df2-b1d1-2b6d6164aa59)
 
 
 **Dashboard**
@@ -77,7 +76,6 @@ This project is licensed under the MIT License.
 
 **detailed_job_desc**
 ![detailed job desc](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/8145efd2-c45e-49d0-82a8-3603165b2c55)
-
 
 
 
