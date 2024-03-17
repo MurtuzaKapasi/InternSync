@@ -1,4 +1,6 @@
 # Techstars_INTERNSYNC
+## PS ID : AB03
+
 
 ## This project simplifies hiring with a web-app. Job seekers create profiles and upload resumes, while recruiters post jobs and filter candidates. Using a DistilBERT ML model from Hugging Face, the app matches candidates with job listings, enhancing the experience for all.
 
@@ -44,7 +46,7 @@ This project is licensed under the MIT License.
 * Node.js
 * MongoDB
 
-
+## Screenshots
 **Hero  image** 
 
 ![hero png](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/0fa66c85-b37f-44da-b34c-ba75d5654986)
