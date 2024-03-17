@@ -1,6 +1,6 @@
 # Techstars_INTERNSYNC
 
-# This project simplifies hiring with a web-app. Job seekers create profiles and upload resumes, while recruiters post jobs and filter candidates. Using a DistilBERT ML model from Hugging Face, the app matches candidates with job listings, enhancing the experience for all.
+## This project simplifies hiring with a web-app. Job seekers create profiles and upload resumes, while recruiters post jobs and filter candidates. Using a DistilBERT ML model from Hugging Face, the app matches candidates with job listings, enhancing the experience for all.
 
 # Features:
 * User Authentication: Job seekers and recruiters can register and log in to their respective accounts.
@@ -27,9 +27,9 @@
 * Receive feedback and improve your profile/application based on suggestions.
 
 ## Roadmap
-Implement additional features such as chat support for communication between job seekers and recruiters.
-Enhance the machine learning model to provide more accurate matching and feedback.
-Expand platform functionality to support internships, freelance projects, and remote work opportunities
+- Implement additional features such as chat support for communication between job seekers and recruiters.
+- Enhance the machine learning model to provide more accurate matching and feedback.
+- Expand platform functionality to support internships, freelance projects, and remote work opportunities
 .
 ## Contributions
 Contributions are welcome! Please fork the repository and submit pull requests with your enhancements or bug fixes.
@@ -43,3 +43,12 @@ This project is licensed under the MIT License.
 * React.js
 * Node.js
 * MongoDB
+  
+## Deployed Url
+[Link to Deployed Solution]()
+
+## Video Url
+[Link to Demo Video]()
+
+## Remarks
+- Any additional things you want to share
