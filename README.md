@@ -69,12 +69,13 @@ This project is licensed under the MIT License.
 ![dashboard](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/89213516-585b-4977-a900-ef59e4b67740)
 
 
-**Detailed Mentor Description**
-![alt text](/Screenshots/mentorDetail.png)
-
 **job_post**
 
 ![job_post](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/d11efc91-c30d-4952-b38d-5c19eca4b43c)
+
+**detailed_job_desc**
+![detailed job desc](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/8145efd2-c45e-49d0-82a8-3603165b2c55)
+
 
 
 
