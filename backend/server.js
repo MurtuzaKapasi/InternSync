@@ -1,34 +1,26 @@
-// server.mjs
-import express from 'express';
-import fileUpload from 'express-fileupload';
-import fetch from 'node-fetch';
-import cors from 'cors';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-
+const express = require('express');
+const fileUpload = require('express-fileupload');
+const fetch = require('node-fetch');
+const cors = require('cors');
+const { fileURLToPath } = require('url');
+const { dirname, join } = require('path');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-
 const app = express();
-
 
 // Enable CORS for all origins
 app.use(cors());
 
-
 const port = 3000;
-
 
 app.use(express.static(join(__dirname, 'public')));
 app.use(fileUpload());
 
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
 
 app.post('/upload', async (req, res) => {
   console.log('Request body:', req.body);
@@ -59,7 +51,6 @@ app.post('/upload', async (req, res) => {
     const response = await fetch('https://api.apilayer.com/resume_parser/upload', requestOptions);
     const parsedResume = await response.text();
 
-
     // Return the parsed resume to the client
     console.log('Parsed resume:', parsedResume);
     res.send(parsedResume);
@@ -68,5 +59,3 @@ app.post('/upload', async (req, res) => {
     res.status(500).send('Error parsing resume');
   }
 });
-
-
