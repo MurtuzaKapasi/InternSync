@@ -53,7 +53,7 @@ This project is licensed under the MIT License.
 
 ![register](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/c273de3f-58ad-4683-8071-1c95151b4503)
 
-**manual**
+**Recruiter**
 ![manual_info](https://github.com/MurtuzaKapasi/InternSync/assets/127979487/4874bf11-6d03-441c-976c-2ad0e0c4e24a)
 
 **upload**
@@ -83,7 +83,7 @@ This project is licensed under the MIT License.
 
 
 
-## Deployed Url
+## yet to deploy
 [Link to Deployed Solution]()
 
 ## Video Url
