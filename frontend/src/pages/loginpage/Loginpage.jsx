@@ -34,19 +34,9 @@ const Loginpage = () => {
       const data = await response.json();
       console.log('Login response:', data);
   
-      // Fetch user details
-      const userResponse = await fetch('http://localhost:3000/api/user/', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${data.token}` // Pass the JWT token received from login response
-        }
-      });
-  
-      const userData = await userResponse.json();
-      console.log('User details:', userData);
-  
+        
       // Check user role and navigate accordingly
-      if (userData.user.role === 'recruiter') {
+      if (data.user.role === 'recruiter') {
         navigate('/recruiter')
       } else {
         navigate('/intern')

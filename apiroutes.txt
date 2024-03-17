@@ -18,7 +18,7 @@
                    
     put : update user details of particular user
         i/p:{
-
+                
             }
 
     post : create user
