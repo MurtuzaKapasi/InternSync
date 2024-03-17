@@ -74,25 +74,22 @@ function RecruiterCard({ recruiter }) {
 
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="max-w-md mx-auto mt-10 bg-[#fbfbfb] shadow-md rounded-lg overflow-hidden">
       <div className="md:flex justify-center">
-        {/* <div className="md:flex-shrink-0">
-          <img className="h-48 w-full object-cover md:w-48" src={`https://example.com/${recruiter.id}.jpg`} alt={`${recruiter.name}`} />
-        </div> */}
-        <h2>Recruiter card page { id}</h2>
         <div className="p-8">
-      <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{selectedRecruiter.name}</div>
-      <p className="mt-2 text-gray-600">{selectedRecruiter.description}</p>
-      <div className="mt-4">
-        <p className="text-gray-700">Skills: {selectedRecruiter.skills.join(', ')}</p>
-        <p className="text-gray-700">Salary: {selectedRecruiter.salary}</p>
-        <p className="text-gray-700">Duration: {selectedRecruiter.duration}</p>
-        <p className="text-gray-700">Location: {selectedRecruiter.location}</p>
-      </div>
-    </div>
+          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">{selectedRecruiter.name}</div><br/>
+          <p className="mt-2 text-gray-600">{selectedRecruiter.description}</p><br/>
+          <div className="mt-4">
+            <p className="text-gray-700"><b>Skills:</b> {selectedRecruiter.skills.join(', ')}</p><br/>
+            <p className="text-gray-700"><b>Salary:</b> {selectedRecruiter.salary}</p><br/>
+            <p className="text-gray-700"><b>Duration:</b> {selectedRecruiter.duration}</p><br/>
+            <p className="text-gray-700"><b>Location:</b> {selectedRecruiter.location}</p><br/>
+          </div>
+        </div>
       </div>
     </div>
   );
+
 }
 
 export default RecruiterCard;
