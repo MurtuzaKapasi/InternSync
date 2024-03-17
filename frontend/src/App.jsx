@@ -9,6 +9,7 @@ import PDFUpload from './pages/PDFUpload';
 import MultiStepForm from './pages/register/MultiStepForm';
 import Recruiter from './pages/dashboard/Recruiter/Recruiter';
 import InternCard from './pages/dashboard/Recruiter/InternCard';
+import PostJob from "./pages/postjob/PostJob";
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='intern/:id' element={<InternCard />} />
         <Route path="/multiregister" element={<MultiStepForm />} />
         <Route path="/login" element={<Loginpage />} />
+        <Route path="/postjob" element={<PostJob/>} />
         <Route path='/internReg' element={<PDFUpload />} />
       </Routes>
     </BrowserRouter>

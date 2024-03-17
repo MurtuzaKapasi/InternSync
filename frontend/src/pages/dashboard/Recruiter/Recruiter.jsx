@@ -80,8 +80,9 @@ const Recruiter = () => {
     },
   ];
 
-
-
+  const handlePostJobClick = () => {
+    navigate('/postjob');
+  };
 
   const handleInternClick = (intern) => {
     setSelectedIntern(intern);
@@ -96,15 +97,21 @@ const Recruiter = () => {
           <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
           <h1 className='text-xl'>Recruiter Dashboard</h1>
         </div>
-        <div className='flex gap-8 ml-auto'>
+        <div className='flex gap-2 ml-auto'>
           {/* Filter icon */}
           <button className='flex gap-4'>
             <svg width="36" height="36" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               {/* Add your SVG path here */}
             </svg>
           </button>
+          <button className='flex items-center mr-2' onClick={handlePostJobClick} >
+            <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              {/* Add your SVG path here */}
+            </svg>
+            Post a job
+          </button>
           {/* Logout icon */}
-          <button className='flex gap-2 items-center mr-4' >
+          <button className='flex items-center mr-4' >
             <svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               {/* Add your SVG path here */}
             </svg>
