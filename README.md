@@ -13,18 +13,18 @@ Feedback Mechanism: Job seekers receive feedback on their application status, mi
 Secure Data Handling: The application ensures the secure storage and handling of sensitive data, adhering to best practices for data privacy and security.
 
 ## Technology Stack
-Frontend: React.js, Gradio for model integration
-Backend: Node.js, Express.js
-Database: MongoDB
-Machine Learning Model: DistilBERT (Hugging Face)
-Deployment: Heroku for backend, Netlify for frontend
+* Frontend: React.js, Gradio for model integration
+* Backend: Node.js, Express.js
+* Database: MongoDB
+* Machine Learning Model: DistilBERT (Hugging Face)
+* Deployment: Heroku for backend, Netlify for frontend
 
 ## Usage
-Open the application in your browser.
-Register as a job seeker or recruiter.
-Upload your resume (job seeker) or create a job posting (recruiter).
-The machine learning model will process the data and provide matching percentages.
-Receive feedback and improve your profile/application based on suggestions.
+* Open the application in your browser.
+* Register as a job seeker or recruiter.
+* Upload your resume (job seeker) or create a job posting (recruiter).
+* The machine learning model will process the data and provide matching percentages.
+* Receive feedback and improve your profile/application based on suggestions.
 
 ## Roadmap
 Implement additional features such as chat support for communication between job seekers and recruiters.
@@ -37,8 +37,8 @@ Contributions are welcome! Please fork the repository and submit pull requests w
 This project is licensed under the MIT License.
 
 ## Acknowledgements
-Hugging Face
-Gradio
-React.js
-Node.js
-MongoDB
+* Hugging Face
+* Gradio
+* React.js
+* Node.js
+* MongoDB
