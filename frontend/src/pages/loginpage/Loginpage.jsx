@@ -34,7 +34,6 @@ const Loginpage = () => {
       const data = await response.json();
       console.log('Login response:', data);
   
-        
       // Check user role and navigate accordingly
       if (data.user.role === 'recruiter') {
         navigate('/recruiter')

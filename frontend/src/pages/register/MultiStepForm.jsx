@@ -81,6 +81,11 @@ const handleSubmit = async (e) => {
       const response2 = await axios.post('http://localhost:3000/api/recruiter/', recruiterformData);
       console.log("Recruiters data submitted", response2.data);
     }
+    else if(formData.role === 'applicant'){
+      const response3 = await axios.post('http://localhost:3000/api/intern/', recruiterformData);
+      console.log("Intern data submitted", response3.data);
+
+    }
     navigate('/login');
     // Reset form data or perform other actions upon successful submission
   } catch (error) {
