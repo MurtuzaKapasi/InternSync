@@ -5,12 +5,13 @@ const validateToken = require('../middleware/validateTokenHandler');
 const cors = require('cors');
 router.use(cors());
 
+router.post('/', createRecruiter);
+
 router.use(validateToken);
 router.get('/', getRecruiters);
 
 router.post('/:id',getRecruiter);
 
-router.post('/', createRecruiter);
 
 router.put('/', updateRecruiter);
 

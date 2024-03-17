@@ -5,6 +5,7 @@ const validateToken = require('../middleware/validateTokenHandler');
 const cors = require('cors');
 router.use(cors());
 router.post('/login', loginUser);
+
 router.post('/', createUser);
 router.use(validateToken);
 router.get('/all', getUsers);

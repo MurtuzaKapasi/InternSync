@@ -72,6 +72,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   console.log("form data", formData);
   console.log("Recruiter form data", recruiterformData);
+  
   try {
     const response = await axios.post('http://localhost:3000/api/user/', formData);
     console.log("Users data Submitted", response.data);
@@ -80,7 +81,7 @@ const handleSubmit = async (e) => {
       const response2 = await axios.post('http://localhost:3000/api/recruiter/', recruiterformData);
       console.log("Recruiters data submitted", response2.data);
     }
-    navitate('/login');
+    navigate('/login');
     // Reset form data or perform other actions upon successful submission
   } catch (error) {
     if (error.response) {

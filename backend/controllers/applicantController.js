@@ -31,7 +31,7 @@ const getApplicant = asyncHandler(async (req, res) => {
 
 //@desc Register applicant
 //@route POST /api/applicant
-//@access Private
+//@access Public
 const createApplicant = asyncHandler(async (req, res) => {
     if(req.user.role !== 'applicant') {
         res.status(401);

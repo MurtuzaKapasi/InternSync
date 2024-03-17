@@ -26,7 +26,7 @@ const getRecruiter = asyncHandler(async (req, res) => {
 
 //@desc Register recruiter
 //@route POST /api/recruiter
-//@access Private
+//@access Public
 const createRecruiter = asyncHandler(async (req, res) => {
     if(req.user.role !== 'recruiter') {
         res.status(401);
