@@ -142,14 +142,11 @@ const Intern = () => {
                   <p className="text-gray-600"><b>Location </b> : {recruiter.location}</p>
                   <p className="text-gray-600"><b>Duration </b> : {recruiter.duration}</p>
                 </div>
-              </Link>            
+              </Link>
             </div>
           ))}
         </div>
       </div>
-
-
-
     </div>
   );
 }

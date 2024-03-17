@@ -120,51 +120,45 @@ const Recruiter = () => {
 
       {/* Intern Cards */}
       <div className='w-full h-auto'>
-      <div className='flex flex-wrap gap-7'>
-        {intern.map((intern, index) => (
-          <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
-            <Link to={`/intern/${intern.id}`} >
-              <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer">
-                <div className='flex justify-center items-center my-2'>
-                  <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
-                </div>
-                <h2 className="text-xl font-semibold">{intern.name}</h2>
-                <p className="text-gray-600">
-                  <b>Skills:</b> {intern.skills.join(', ')}
-                </p>
-                <p className="text-gray-600">
-                  <b>Education:</b> {intern.education}
-                </p>
-                <p className="text-gray-600">
-                  <b>Experience:</b> {intern.experience}
-                </p>
-                <p className="text-gray-600">
-                  <b>Bio:</b> {intern.bio}
-                </p>
-                <p className="text-gray-600">
-                  <b>Mobile:</b> {intern.mobile}
-                </p>
-                <div>
-                  <b>Certifications:</b>
-                  <ul>
-                    {intern.certifications.map((certification, index) => (
-                      <li key={index}>{certification}</li>
+        <div className='flex flex-wrap gap-7'>
+          {intern.map((intern, index) => (
+            <div key={index} className="max-w-sm w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4">
+              <Link to={`/intern/${intern.id}`} >
+                <div className="border border-gray-200 rounded-lg p-4 shadow shadow-zinc-700 cursor-pointer h-96">
+                  <div className='flex justify-center items-center my-2'>
+                    <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-14 h-14" />
+                  </div>
+                  <h2 className="text-xl font-semibold">{intern.name}</h2>
+                  <p className="text-gray-600"><b>Skills:</b></p>
+                  <div className="flex flex-wrap mt-2 ">
+                    {intern.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="text-zinc-600 bg-purple-200 py-1 px-2 mr-1 mb-1 rounded-lg"
+                        style={{ maxWidth: 'calc(100% - 1rem)' }} // Limit width to card width
+                      >
+                        {skill}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
+
+                  <p className="text-gray-600">
+                    <b>Experience:</b> {intern.experience}
+                  </p>
+                  <p className="text-gray-600">
+                    <b>Bio:</b>{" "}
+                    {intern.bio.split(" ").length > 8
+                      ? intern.bio.split(" ").slice(0, 8).join(" ") + "..."
+                      : intern.bio}
+                  </p>
+
+                      
                 </div>
-                <div>
-                  <b>Social Media:</b>
-                  <ul>
-                    <li><a href={intern.socialMedia.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                    <li><a href={intern.socialMedia.github} target="_blank" rel="noopener noreferrer">GitHub</a></li>
-                  </ul>
-                </div>
-              </div>
-            </Link>
-          </div>
-        ))}
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
 
     </div>
   );
