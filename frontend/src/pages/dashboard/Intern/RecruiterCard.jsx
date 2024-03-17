@@ -74,6 +74,10 @@ function RecruiterCard({ recruiter }) {
 
 
   return (
+    <div className="max-w-2xl mx-auto mt-10 flex">
+    <div className="md:flex-shrink-0 flex items-center justify-center mr-20">
+          <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="logo" className="w-24 h-24" />
+    </div>
     <div className="max-w-md mx-auto mt-10 bg-[#fbfbfb] shadow-md rounded-lg overflow-hidden">
       <div className="md:flex justify-center">
         <div className="p-8">
@@ -83,11 +87,12 @@ function RecruiterCard({ recruiter }) {
             <p className="text-gray-700"><b>Skills:</b> {selectedRecruiter.skills.join(', ')}</p><br/>
             <p className="text-gray-700"><b>Salary:</b> {selectedRecruiter.salary}</p><br/>
             <p className="text-gray-700"><b>Duration:</b> {selectedRecruiter.duration}</p><br/>
-            <p className="text-gray-700"><b>Location:</b> {selectedRecruiter.location}</p><br/>
+            <p className="text-gray-700"><b>Location:</b> {selectedRecruiter.location}</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
   );
 
 }
